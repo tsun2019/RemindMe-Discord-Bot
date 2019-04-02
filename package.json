@@ -1,0 +1,15 @@
+{
+  "name": "remindme",
+  "version": "1.0.0",
+  "description": "Take simple commands to remind people about certain things at set times.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Tristan",
+  "license": "ISC",
+  "dependencies": {
+    "discord.js": "^11.4.2"
+  },
+  "devDependencies": {}
+}
