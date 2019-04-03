@@ -50,7 +50,8 @@ processCommand = (receivedMessage) => {
     let quotes = [
       '"And men go abroad to admire the heights of mountains, the mighty waves of the sea, the broad tides of rivers, the compass of the ocean, and the circuits of the stars, yet pass over the mystery of themselves without a thought." ― St. Augustine',
       "\"For the soul is dyed by the soul's thoughts.\" - Marcus Aurelius (originally Heraclitus thought)",
-      '"When I was a boy and I would see scary things in the news, my mother would say to me, "Look for the helpers. You will always find people who are helping." - Fred Rogers'
+      '"When I was a boy and I would see scary things in the news, my mother would say to me, "Look for the helpers. You will always find people who are helping." - Fred Rogers',
+      '"Be who you are and say what you feel because those who mind don’t matter and those who matter don’t mind." – Dr. Seuss'
     ];
     
     receivedMessage.channel.send(quotes[getRandomInt(4)]);
