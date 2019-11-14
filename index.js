@@ -11,7 +11,7 @@ client.on('ready', () => {
 
     guild.channels.forEach((channel) => {
       console.log(`Name: ${channel.name}, Type: ${channel.type}, ID: ${channel.id}`);
-      if (channel.id == "XXXXXXXXXXXXXXXXXXX") {
+      if (channel.id == "561341142030090247") {
         textID = channel.id;
       }
     })
@@ -38,13 +38,29 @@ processCommand = (receivedMessage) => {
   let command = receivedMessage.content.substr(1);
   let fullcommand = command.split(" ");
   command = fullcommand[0];
+  //make arguments take rest of command
   let arguments = fullcommand.slice(1);
   if (command == "remindme") {
-    let name = arguments[0];
+    //time/duration will always be last argument
+    //if not number then error?
+    let time = arguments.pop();
+    let description = arguments.join(" ");
+      
+    //if begin/end with quotes then take it as description
+    if(description[0] == '"' && description[description.length - 1] == '"'){
+     //remove quotes by removing first and last characters of string.
+     description = description.slice(1, -1);
+     console.log(description);
+    console.log("<@" + receivedMessage.author.id + "> " + description);
+     setTimeout(() => receivedMessage.channel.send("<@" + receivedMessage.author.id + "> " + description), time * 60000);
+    }
+    else
+     receivedMessage.channel.send("error");
+    //receivedMessage.channel.send("kobe " + description);
 
   }
   else if (command == "GOT") {
-    receivedMessage.channel.send("FACT! Game of Thrones is the best show of all time.");
+    receivedMessage.channel.send("FACT! Game of Thrones' directors ruined the closing of the show.");
   }
   else if (command == "quote") {
     let quotes = [
@@ -55,7 +71,7 @@ processCommand = (receivedMessage) => {
     ];
     
     receivedMessage.channel.send(quotes[getRandomInt(4)]);
-
+    
   }
   else{
     receivedMessage.channel.send("Not a command you silly goose!");
@@ -63,6 +79,6 @@ processCommand = (receivedMessage) => {
 }
 
 
-bot_secret_token = "XXXXXXXXXXXXXXXXXX";
+bot_secret_token = "NTYxMzM4NTg5NzQxNTgwMjg5.XKpIkg.RDjA9zwS1fuu06Yb-56n6N6mlUs";
 
 client.login(bot_secret_token);
